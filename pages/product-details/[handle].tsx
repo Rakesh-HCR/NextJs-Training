@@ -13,6 +13,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import NativeSelect from '@material-ui/core/NativeSelect';
 import Box from '@material-ui/core/Box';
+import InputLabel  from '@material-ui/core/InputLabel';
 
 
 const useStyles = makeStyles({
@@ -33,8 +34,7 @@ const useStyles = makeStyles({
     width: "2px"
   },
   formControl: {
-    minWidth: "200",
-    border: '1px solid'
+    minWidth: "200"
   },
   gridContainer: {
     backgroundColor:"#fbe9e7",
@@ -84,7 +84,7 @@ export default function ProductDetail({productDtl}){
                 <Grid item container xs={12} sm={10} className={classes.gridContainer}>
                     <Grid item xs={12} sm={6}>
                         <Card className={classes.root}>
-                            <CardMedia className={classes.media} image={productDtl.images[0].src} />
+                            <CardMedia className={classes.media} image={productDtl.images[0].src} title={productDtl.title} />
                         </Card>
                     </Grid>
                     <Divider className={classes.MuiDividerVertical} variant="middle" orientation="vertical" flexItem />
@@ -102,15 +102,12 @@ export default function ProductDetail({productDtl}){
                         </Typography>
                         <Box display="flex">
                             <Box p={1}>
-                                <Typography variant="h6">
-                                    Variants
-                                </Typography>
-                            </Box>
-                            <Box p={1}>
                                 <FormControl className={classes.formControl}>
+                                    <InputLabel  margin="dense" htmlFor="select-variant-label" component="label"><Typography variant="h5" color="textPrimary"> Variants</Typography></InputLabel>
+                                    <Box p={2}/>
                                     <NativeSelect defaultValue="Large" onChange={handleChange} inputProps={{
                                         name: 'name',
-                                        id: 'uncontrolled-native',
+                                        id: 'select-variant-label'
                                     }}>
                                     {
                                         productDtl.variants.map((variant)=>(

@@ -86,7 +86,7 @@ export default function ProductCart({quantity,cart,totalPrice,showCart,removeFro
                         {cart.map((cardItem,index) => (
                           <TableRow>
                               <TableCell align="center" component="th" scope="row">
-                                    <CardMedia component="img"  className={classes.media} image={cardItem.image} />
+                                    <CardMedia component="img"  className={classes.media} image={cardItem.image} title={cardItem.title} />
                                     <Typography  variant="subtitle2" style={{fontSize:10,fontWeight:700}} align="left">
                                         {cardItem.title}
                                     </Typography>

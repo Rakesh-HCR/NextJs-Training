@@ -35,6 +35,10 @@ const useStyles = makeStyles({
    titleStyle : {
         fontSize:12,
         fontWeight:700
+   },
+   buttonBg: {
+      color : "#fdfefe",
+      fontWeight: "bold"
    }
 });
 export default function ProductList() {
@@ -117,7 +121,7 @@ export default function ProductList() {
                         <Card className={classes.root}>
                             <Link href={`/product-details/${product.handle}`}>
                             <CardActionArea style={{height : "300px"}}>
-                                <CardMedia component="img" className={classes.media} image={product.images[0].src} />
+                                <CardMedia component="img" className={classes.media} image={product.images[0].src} title={product.title} />
                                 <Box display="flex">
                                     <Box p={1}>
                                         <Typography variant="subtitle2" className={classes.titleStyle} align="left" display="initial">
@@ -134,7 +138,9 @@ export default function ProductList() {
                             </Link>
                             <CardActions>
                                 <div className={classes.actions}>
-                                    <Button variant="contained" color="secondary" size="small" onClick={() => addToCart(product)}>ADD TO CART</Button>
+                                    <Button variant="contained" color="secondary" onClick={() => addToCart(product)}>
+                                        ADD TO CART
+                                    </Button>
                                 </div>
                             </CardActions>
                         </Card>
