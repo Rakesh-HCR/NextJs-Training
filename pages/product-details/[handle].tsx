@@ -13,7 +13,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import NativeSelect from '@material-ui/core/NativeSelect';
 import Box from '@material-ui/core/Box';
-import InputLabel  from '@material-ui/core/InputLabel';
+import InputLabel from '@material-ui/core/InputLabel';
 
 
 const useStyles = makeStyles({
@@ -103,11 +103,11 @@ export default function ProductDetail({productDtl}){
                         <Box display="flex">
                             <Box p={1}>
                                 <FormControl className={classes.formControl}>
-                                    <InputLabel  margin="dense" htmlFor="select-variant-label" component="label"><Typography variant="h5" color="textPrimary"> Variants</Typography></InputLabel>
+                                    <InputLabel htmlFor="uncontrolled-native"><Typography variant="h5" color="textPrimary"> Variants</Typography></InputLabel>
                                     <Box p={2}/>
                                     <NativeSelect defaultValue="Large" onChange={handleChange} inputProps={{
                                         name: 'name',
-                                        id: 'select-variant-label'
+                                        id: 'uncontrolled-native',
                                     }}>
                                     {
                                         productDtl.variants.map((variant)=>(
